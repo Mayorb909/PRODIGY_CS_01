@@ -1,0 +1,42 @@
+# message to encrypty carries message variable.
+# and the cipher shift key is 4
+first_let = 65
+second_let = 90
+let_range = 26
+
+#defining a fuction to call the code for other text encryption
+def ceacer_encrypt(message, shift_key):
+    result = ''
+
+    # itterate through each message character abnd covert it to ASCII code
+    for letters in message.upper():
+        if letters.isalpha():
+            converted_letters = ord(letters)
+            Ceacar_letters = converted_letters + shift_key
+            #using if condition to return the ascci code to the beggining once it get to the 26th character
+
+
+            if Ceacar_letters > second_let:
+                Ceacar_letters -= 26
+
+            if Ceacar_letters < first_let:
+                Ceacar_letters += 26
+
+            finnal_ceacer = chr(Ceacar_letters)
+            result = result + finnal_ceacer
+            
+        else:
+            result += letters
+
+
+    print(result)
+
+
+
+user_messsage = input('message to encrypt:')
+owner_shift_key = int(input('shiftkey:'))
+ceacer_encrypt(user_messsage, owner_shift_key)
+
+
+
+
